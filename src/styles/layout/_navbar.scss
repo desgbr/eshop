@@ -1,0 +1,23 @@
+.navbar_icons{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  .navbar_icon{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $c-white;
+    &.cart{
+      background-color: $c-gold;
+    }
+    &.heart{
+      background-color: $c-green;
+    }
+  }
+
+}
