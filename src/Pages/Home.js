@@ -10,7 +10,7 @@ return (
 <Features />
 <Slider/>
 <ListProducts/>
-<Footer/>
+
 </>
   )
 }

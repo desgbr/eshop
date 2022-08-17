@@ -24,8 +24,8 @@ function App() {
       <Route path ='/contact' elemet={<Contact />} />
       <Route path ='*' element={<NotFound/>}/>
      </Routes> 
-     <Footer/>
-
+     
+<Footer/>
     </>
       )
 }
