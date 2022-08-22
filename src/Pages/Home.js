@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 function Home() {
   const [products , setProducts] = useState([])
+  const [cart , setCart ] = useState([])
   const [productsGroup , setProductsGroup] = useState([])
   useEffect(() =>{
   try{
@@ -34,7 +35,7 @@ return (
   <div className="productContainer">
 
 {products.map((prod ) =>(
-<ListProducts key={prod.id} product={prod}/>
+<ListProducts key={prod.id} product={prod} cart={cart} setCart={setCart} />
 
 )) }
   </div>
