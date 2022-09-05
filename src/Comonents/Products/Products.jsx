@@ -18,7 +18,7 @@ useEffect(() =>{
   fetchProducts(dispatch)
   },[])
 
-const allProducts = products.map((product) =>{
+const allProducts = products?.map((product) =>{
 return (
   <div key={product.id}>
    <div className='card-item' key={product.id}>
@@ -29,25 +29,25 @@ return (
       <Card.Title>{product.title}</Card.Title>
       <Card.Text> {product.description}  </Card.Text>
     </Card.Body>
- 
+
    </Card>
    <div className="card-bottom d-flex align-items-center justify-content-between">
  <p className='price' style={{fontSize:"20px"}}>{product.price}LE</p>
  <Button > <GiShoppingCart/> add to card</Button>
  </div>
-</div> 
+</div>
   </div>
   )
 })
 
 return (
  <>
- <div className='product'>        
-        {allProducts.length ===0 && <div>No Products</div>}
-        {allProducts } 
+ <div className='product'>
+        {allProducts?.length === 0 && <div>No Products</div>}
+        {allProducts }
         </div>
 </>
-      
+
   )
 }
 
@@ -55,9 +55,9 @@ export default Products
 //  <Button >  <GiShoppingCart/> add to card</Button>
 //  {/* <Button variant="warning" onClick = {() =>{
 //  setCart([...cart , product])
-//  }}> 
+//  }}>
 //  <GiShoppingCart/>add to card</Button> */}
 //  </div>
-//  </div> 
+//  </div>
 // ))}
-// </div> 
+// </div>
