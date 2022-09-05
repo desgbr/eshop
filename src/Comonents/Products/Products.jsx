@@ -16,7 +16,7 @@ navigate('/productdetails')
 
 useEffect(() =>{
   fetchProducts(dispatch)
-  },[])
+  },[dispatch])
 
 const allProducts = products?.map((product) =>{
 return (
