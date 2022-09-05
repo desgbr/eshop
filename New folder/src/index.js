@@ -5,14 +5,16 @@ import './index.css'
 import {BrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
-import { Provider } from "react-redux";
-import store from './Store/Store'
+// import { Provider } from "react-redux";
+// import store from './Store/index'
 
 ReactDOM.render(
-<Provider store={store}>
 <BrowserRouter>
+<React.StrictMode>
+{/* <Provider store={store}> */}
 <App/>
+{/* </Provider> */}
+</React.StrictMode>
 </BrowserRouter>
-</Provider>
 
  , document.getElementById("root"));

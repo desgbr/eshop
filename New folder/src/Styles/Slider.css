@@ -1,0 +1,15 @@
+
+.carousel-item img {
+    margin: 0 3px;
+    width: 18%;
+    height: 10rem;
+}
+.carousel-control-prev {
+    left: -57px;
+}
+.carousel-control-next {
+    right: -31px;
+}
+.carousel-indicators {
+    bottom: -9px;
+}

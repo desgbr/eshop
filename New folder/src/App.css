@@ -37,11 +37,6 @@ font-weight: bold;
 header ul li a.active{
 color: gray;
 }
-.icons{
-    color: wheat;
-    font-weight: bold;
-    position: relative;
-}
 .icons .icon:first-child{
 background-color: orange;
 font-size: 2rem;
@@ -49,17 +44,6 @@ border-radius: 50%;
 padding: 5px;
 font-weight: bold;
 position: relative;
-}
-span.badge.badge.bg-secondary {
-    position: absolute;
-    right: 36px;
-    top: -1px;
-    font-weight: bold;
-    width: 15px;
-    height: 15px;
-    font-size: 0.8rem;
-    padding: 2px 5px;
-
 }
 .icons .icon:last-child{
     background-color: green;
@@ -83,16 +67,48 @@ color: rgb(22, 202, 22);
 margin-left: 8px;
 
 }
-/* .badge{
+.badge{
     font-size: 14px;
     position: absolute;
     margin-left: -11px;
     top: 15px;
     width: 19px;
     height: 20px;
-} */
+}
 
-.counter {
-color: white;
-background-color: transparent;
+.productContainer{
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    gap: 1rem;
+padding:20px;
+}
+.card-item{
+    box-shadow: 1px 2px 5px rgb(0 0 0 / 30%);
+    width: 100%;
+    height: 496px;
+}
+.card-item{
+position: relative;
+}
+.card-text{
+    font-size: 12px;
+    color: #676767;
+    padding: 13px 0;
+    height: 116px;
+}
+.card-img-top{
+    width: 100%;
+    height: 150px;
+}
+.card .btn-card{
+    position: absolute;
+    bottom: -4rem;
+}
+.card-bottom{
+    width: 100%;
+    height: fit-content;
+    padding: 0 20px;
+    position: ap;
+    position: absolute;
+    bottom: 23px;
 }

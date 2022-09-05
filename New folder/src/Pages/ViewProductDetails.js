@@ -1,8 +1,8 @@
-import React ,{useState}from 'react'
+import React from 'react'
 import {Button , Card} from 'react-bootstrap'
 import {useNavigate , useLocation} from 'react-router-dom'
 import {GiShoppingCart} from 'react-icons/gi'
-function ViewProductDetails(props) {
+function ViewProductDetails() {
   const navigate = useNavigate()
   const location = useLocation()
   console.log(location.state)
@@ -25,13 +25,10 @@ function ViewProductDetails(props) {
     </Card.Body>
     <div className="card-bottom d-flex align-items-center justify-content-between">
 <p className='price' style={{fontSize:"20px"}}>{location.state.price}LE</p>
-{/* <Button variant="warning" onClick = {() =>{
+<Button variant="warning" onClick = {() =>{
 location.state.setCard(location.state.product)
 }}> 
-<GiShoppingCart/>add to card</Button> */}
-<Button onClick={props.increment}>+</Button>
-<p>{props.count}</p>
-<Button onClick={props.decrement} >-</Button>
+<GiShoppingCart/>add to card</Button>
     </div>
   </Card>
      </div>
