@@ -14,7 +14,7 @@ const Offers = () => {
   return (
     <Container>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={1}
         spaceBetween={20}
         loop
         autoplay={{
@@ -24,7 +24,7 @@ const Offers = () => {
 
         modules={[Autoplay]}
         breakpoints={{
-          600: {
+          0: {
             slidesPerView: 1,
             spaceBetween: 20,
           },

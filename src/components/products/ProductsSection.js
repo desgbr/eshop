@@ -11,16 +11,16 @@ const ProductsSection = ({data}) => {
     <Container>
       <h3 className="mt-4" style={{ color:'#1F2937'}}> <BiCategory color='#009F7F' /> {catagory}</h3>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={1}
         spaceBetween={20}
         loop
         breakpoints={{
           600: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           1024: {
