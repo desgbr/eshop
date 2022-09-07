@@ -8,7 +8,7 @@ const Header = () => {
         <h1 className='text-dark text-center'>Exclusive Brands</h1>
         <p className="lead text-center">Get your exclusive & brands delivered to you in no time</p>
 
-        <InputGroup className=" my-5 w-50 mx-auto">
+        <InputGroup className="input-search my-5 mx-auto">
           <Form.Control
             className='p-2 px-3'
             placeholder="Search your products from here"

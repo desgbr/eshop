@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from  'react-bootstrap'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay} from "swiper";
+import Slider from "react-slick";
+
 
 const offersImgs = [
   '/features/offer-1.png',
@@ -11,42 +11,50 @@ const offersImgs = [
   '/features/offer-5.png'
 ]
 const Offers = () => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <Container>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={20}
-        loop
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-
-        modules={[Autoplay]}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          }
-        }}
-        className="mySwiper features"
-      >
+      <Slider {...settings}>
         {
           offersImgs.map((img, idx) => {
             return (
-              <SwiperSlide key={idx}><img src={img} alt='offer' /></SwiperSlide>
+              <div className='offers-slider' key={idx}><img src={img} alt='offer' /></div>
             )
           })
         }
-      </Swiper>
+      </Slider>
     </Container>
   )
 }

@@ -2,48 +2,65 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { BiCategory } from 'react-icons/bi'
 import ProductCard from './ProductCard'
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from "react-slick";
 
 const ProductsSection = ({data}) => {
   const [catagory, products] = data
-  console.log(catagory, products );
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1170,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <Container>
-      <h3 className="mt-4" style={{ color:'#1F2937'}}> <BiCategory color='#009F7F' /> {catagory}</h3>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={20}
-        loop
-        breakpoints={{
-          600: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1170: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          }
-        }}
-        className="mySwiper mb-3"
-      >
+      <h3 className="mt-4 productContainer" style={{ color:'#1F2937'}}> <BiCategory color='#009F7F' /> {catagory}</h3>
+      <Slider {...settings}>
       {
-        products ? products.map(product =>{
+        products.length > 0 ? products.map(product =>{
           return(
 
-            <SwiperSlide key={product.id} ><ProductCard {...product} /></SwiperSlide>
+            <div className='category-slide' key={product.id} ><ProductCard {...product} /></div>
           )
         }) : <p className="lead text-center text-danger">Sorry we don't have any products right now, Try again later.</p>
       }
 
-      </Swiper>
+      </Slider>
       <hr/>
     </Container>
   )

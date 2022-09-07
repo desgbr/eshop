@@ -7,7 +7,18 @@
   background-position: center 70%;
   min-height: 80vh;
   margin-bottom: 50px;
-  input{
-    height: 54px;
+  .input-search{
+    width: 50%;
+    input{
+      height: 54px;
+    }
   }
+}
+@media screen and (max-width:768px) {
+  .header{
+  min-height: 50vh;
+  .input-search{
+    width: 100%;
+  }
+}
 }

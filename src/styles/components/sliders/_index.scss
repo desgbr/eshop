@@ -1,4 +1,6 @@
-.features {
+
+.offers-slider {
+  padding: 2px;
     img {
       width: 100%;
       height: auto;
@@ -9,5 +11,10 @@
       -ms-border-radius: 10px;
       -o-border-radius: 10px;
 }
+}
 
+.category-slide{
+  .product-card{
+    width: 100%;
+  }
 }
