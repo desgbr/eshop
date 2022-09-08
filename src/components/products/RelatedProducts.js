@@ -4,13 +4,12 @@ import { BiCategory } from 'react-icons/bi'
 import ProductCard from './ProductCard'
 import Slider from "react-slick";
 
-const ProductsSection = ({data}) => {
-  const [catagory, products] = data
+const RelatedProducts = ({ products }) => {
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
@@ -49,21 +48,21 @@ const ProductsSection = ({data}) => {
   };
   return (
     <Container>
-      <h3 className="mt-4 productContainer" style={{ color:'#1F2937'}}> <BiCategory color='#009F7F' /> {catagory || 'Related Products'}</h3>
+      <h3 className="mt-4 productContainer" style={{ color: '#1F2937' }}> <BiCategory color='#009F7F' /> Related Products</h3>
       <Slider {...settings}>
-      {
-        products?.length > 0 ? products?.map(product =>{
-          return(
+        {
+          products?.length > 0 ? products?.map(product => {
+            return (
 
-            <div className='category-slide' key={product?.id} ><ProductCard {...product} /></div>
-          )
-        }) : <p className="lead text-center text-danger">Sorry we don't have any products right now, Try again later.</p>
-      }
+              <div className='category-slide' key={product?.id} ><ProductCard {...product} /></div>
+            )
+          }) : <p className="lead text-center text-danger">Sorry we don't have any products right now, Try again later.</p>
+        }
 
       </Slider>
-      <hr/>
+      <hr />
     </Container>
   )
 }
 
-export default ProductsSection
+export default RelatedProducts

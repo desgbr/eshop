@@ -1,10 +1,12 @@
 import React from 'react'
 import { BsCart4 } from 'react-icons/bs'
 import Badge from 'react-bootstrap/Badge';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const ProductCard = (product) => {
+  const navigate = useNavigate()
   const { id, title, price, description, category, thumbnail, rating } = product
   // const { id, title, price, description, category, image, rating: { rate, count } } = product
   return (
@@ -13,7 +15,7 @@ const ProductCard = (product) => {
         <img src={thumbnail} alt={title} />
       </div>
       <div className="info">
-      <h6>{title}</h6>
+        <h6 onClick={() => navigate(`../product/${id}`)} className='h6'>{title}</h6>
       <p>{description}</p>
       <div className="price">
           <h5>{price}<span>L.E</span></h5>
