@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { Badge, Col, Container, Row } from 'react-bootstrap'
 import { Rating } from 'react-simple-star-rating'
-import ProductsSection from '../components/products/ProductsSection'
 import RelatedProducts from '../components/products/RelatedProducts'
 import { BsCart4 } from 'react-icons/bs'
+
+
 const ProductsDetails = () => {
   const {id} = useParams()
   const productData = useSelector(state => state.products.Allproducts.find(product => product.id === +id))
@@ -15,6 +16,7 @@ const ProductsDetails = () => {
 
   return (
     <Container className='my-5'>
+
       {
         productData ?
           <Row>
@@ -29,7 +31,6 @@ const ProductsDetails = () => {
                 {productData?.brand}
                 </Badge>
               </div>
-
               <Rating
                 readonly={true}
                 size={24}

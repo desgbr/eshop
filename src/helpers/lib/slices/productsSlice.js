@@ -7,6 +7,7 @@ const initialState = {
   Categories:{},
   favorite:[],
 }
+
 const productsSlice = createSlice({
   name:'products',
   initialState,

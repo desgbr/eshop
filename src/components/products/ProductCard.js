@@ -15,7 +15,7 @@ const ProductCard = (product) => {
         <img src={thumbnail} alt={title} />
       </div>
       <div className="info">
-        <h6 onClick={() => navigate(`../product/${id}`)} className='h6'>{title}</h6>
+        <h6 onClick={() => navigate(`../product/${id}`, { replace: true })} className='h6'>{title}</h6>
       <p>{description}</p>
       <div className="price">
           <h5>{price}<span>L.E</span></h5>

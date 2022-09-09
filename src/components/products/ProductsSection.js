@@ -6,6 +6,7 @@ import Slider from "react-slick";
 
 const ProductsSection = ({data}) => {
   const [catagory, products] = data
+
   const settings = {
     dots: false,
     infinite: false,

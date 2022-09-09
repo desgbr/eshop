@@ -10,6 +10,7 @@ import { allProducts , categories} from '../helpers/lib/slices/productsSlice'
 const Home = () => {
 const dispatch = useDispatch()
   const { Categories } = useSelector(state => state.products)
+  console.log(Categories);
   useEffect(() => {
     try {
       axios.get('https://dummyjson.com/products?&limit=100').then(

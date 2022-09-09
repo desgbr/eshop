@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import { Container, InputGroup, Form , Button} from 'react-bootstrap'
 import { BiSearch } from 'react-icons/bi'
 const Header = () => {
+  const [search, setSearch] = useState('')
+  const navigate = useNavigate()
   return (
     <div className="header">
       <Container className='py-5 '>
@@ -14,8 +17,9 @@ const Header = () => {
             placeholder="Search your products from here"
             aria-label="Search your products from here"
             aria-describedby="basic-addon2"
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <Button variant="success" id="button-addon2">
+          <Button variant="success" id="button-addon2" onClick={() => navigate(`/search/${search}`)} disabled={!search}>
             <BiSearch /> Search
           </Button>
         </InputGroup>
