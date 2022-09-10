@@ -1,36 +1,27 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import axios from 'axios';
 import Header from '../components/header/Header'
 import Offers from '../components/Sliders/offers/Offers'
 import ProductsSection from '../components/products/ProductsSection';
-import { allProducts , categories} from '../helpers/lib/slices/productsSlice'
+import { getProducts, categories } from '../helpers/lib/slices/productsSlice'
 
 
 const Home = () => {
 const dispatch = useDispatch()
-  const { Categories } = useSelector(state => state.products)
-  const state = useSelector(state => state.products)
-  console.log(state)
+  const { Categories, Allproducts } = useSelector(state => state.products)
+  
   useEffect(() => {
-    try {
-      axios.get('https://dummyjson.com/products?&limit=100').then(
-        res => {
-          dispatch(allProducts(res.data.products))
-          const groupByCategory = res.data.products.reduce((group, product) => {
-            const { category } = product;
+    dispatch(getProducts())
+    if (Allproducts) {
+      const groupByCategory = Allproducts.reduce((group, product) => {
+      const { category } = product;
             group[category] = group[category] ?? [];
             group[category].push(product);
             return group;
           }, {});
           dispatch(categories(groupByCategory))
-        }
-      )
-    } catch (error) {
-      console.log("Oops error...", error);
-    }
-
-  }, [dispatch])
+}
+  }, [Allproducts.length , dispatch])
 
   return (
     <div>

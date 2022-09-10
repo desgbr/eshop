@@ -5,6 +5,7 @@ import { Badge, Col, Container, Row } from 'react-bootstrap'
 import { Rating } from 'react-simple-star-rating'
 import RelatedProducts from '../components/products/RelatedProducts'
 import { BsCart4 } from 'react-icons/bs'
+import Slider from 'react-slick'
 
 
 const ProductsDetails = () => {
@@ -14,6 +15,15 @@ const ProductsDetails = () => {
   console.log(relatedProducts)
   console.log(id);
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 3000,
+  };
   return (
     <Container className='my-5'>
 
@@ -22,7 +32,18 @@ const ProductsDetails = () => {
           <Row>
 
             <Col md='6'>
-              <img width='80%' src={productData?.thumbnail} alt={productData?.title} />
+              <Slider {...settings}>
+              {
+                productData.images.map((slideImg, idx) =>{
+                  return(
+                    <div key={idx}>
+                      <img className='mx-auto text-center' style={{maxHeight:'400px'}} src={slideImg} alt={productData?.title} />
+                    </div>
+                    )
+                })
+              }
+
+            </Slider>
             </Col>
             <Col md='6'>
               <h4>{productData?.title}</h4>
@@ -40,7 +61,7 @@ const ProductsDetails = () => {
                 {productData?.description}
               </p>
               <div className="price">
-                <h5>{productData?.price}<span>L.E</span></h5>
+                <h5>{productData?.price * 19}<span className='fs-6'> L.E</span></h5>
                 <button className='btn btn-warning mt-3'><BsCart4 /> add to cart</button>
               </div>
             </Col>

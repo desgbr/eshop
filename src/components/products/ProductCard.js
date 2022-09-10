@@ -18,7 +18,7 @@ const ProductCard = (product) => {
         <h6 onClick={() => navigate(`../product/${id}`, { replace: true })} className='h6'>{title}</h6>
       <p>{description}</p>
       <div className="price">
-          <h5>{price}<span>L.E</span></h5>
+          <h5>{price * 19}<span>L.E</span></h5>
           <button className='btn btn-warning'><BsCart4 /> add to cart</button>
       </div>
       </div>
